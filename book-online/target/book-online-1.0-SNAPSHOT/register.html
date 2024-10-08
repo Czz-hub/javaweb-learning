@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <style>
+        @font-face {
+            font-family: 'iconfont';
+            src: url('//at.alicdn.com/t/font_1427254_qm1jfg7xsu.eot');
+            src: url('//at.alicdn.com/t/font_1427254_qm1jfg7xsu.eot?#iefix') format('embedded-opentype'),
+            url('//at.alicdn.com/t/font_1427254_qm1jfg7xsu.woff2') format('woff2'),
+            url('//at.alicdn.com/t/font_1427254_qm1jfg7xsu.woff') format('woff'),
+            url('//at.alicdn.com/t/font_1427254_qm1jfg7xsu.ttf') format('truetype'),
+            url('//at.alicdn.com/t/font_1427254_qm1jfg7xsu.svg#iconfont') format('svg');
+        }
+
+        .iconfont {
+            font-family: "iconfont", serif !important;
+            font-size: 28px;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-stroke-width: 0;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            background-size: cover;
+            background-color: rgb(47, 126, 138);
+            background-blend-mode: luminosity;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form-wrap {
+            width: 450px;
+            padding: 20px;
+            border-radius: 20px;
+            background-color: #fff;
+            box-shadow: 2px 5px 10px #aaa;
+            text-align: center;
+        }
+
+        h3 {
+            margin-bottom: 15px;
+            color: rgb(36, 169, 190);
+        }
+
+        .input-box {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid #e4e6e5;
+            border-radius: 3px;
+            color: #333;
+            font-size: 13px;
+            outline: none;
+        }
+
+        .input-box:focus {
+            border-color: rgb(36, 169, 190);
+        }
+
+        .btn {
+            width: 70%;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            background-color: rgb(36, 169, 190);
+            color: #fff;
+            cursor: pointer;
+            box-shadow: 2px 5px 10px #aaa;
+        }
+
+        .btn:hover {
+            background-color: rgb(30, 140, 150);
+        }
+
+        .line-box {
+            width: 80%;
+            margin-top: 15px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .line {
+            border-bottom: 1px solid #9b9b9b;
+            flex: 0 0 33%;
+        }
+
+        .login-3rd {
+            flex: 0 0 30%;
+            color: #9b9b9b;
+            font-size: 11px;
+            text-align: center;
+        }
+
+        .icon-box {
+            width: 50%;
+            display: inline-flex;
+            justify-content: center;
+            margin-top: 5px;
+        }
+
+        .icon-box i {
+            flex: 0 0 33%;
+        }
+
+        .captcha-box {
+            margin-top: 15px;
+        }
+
+        .captcha-img {
+            margin-left: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="form-wrap">
+    <form action="/register" method="post" class="login-box">
+        <h3 class="active">用户注册</h3>
+        <div>
+            <label>
+                <input type="text" name="account" class="input-box" placeholder="手机号/邮箱">
+            </label>
+        </div>
+        <div>
+            <label>
+                <input type="password" name="password" class="input-box" placeholder="密码">
+            </label>
+        </div>
+        <div>
+            <label>
+                <input type="password" name="confirmPassword" class="input-box" placeholder="确认密码">
+            </label>
+        </div>
+        <div class="captcha-box">
+            <label>
+                <input type="text" name="captcha" class="input-box" placeholder="验证码">
+            </label>
+            <img src="/captcha" alt="Captcha" class="captcha-img" id="captchaImage" onclick="reloadCaptcha()">
+        </div>
+        <div>
+            <label>
+                <input type="submit" value="立即注册" class="btn">
+            </label>
+        </div>
+        <div class="line-box">
+            <div class="line"></div>
+            <div class="login-3rd">第三方登录</div>
+            <div class="line"></div>
+        </div>
+        <div class="icon-box">
+            <i class="iconfont">&#xe600;</i>
+            <i class="iconfont">&#xe601;</i>
+            <i class="iconfont">&#xe602;</i>
+        </div>
+    </form>
+</div>
+
+<script>
+    function reloadCaptcha() {
+        document.getElementById('captchaImage').src = '/captcha?' + new Date().getTime();
+    }
+</script>
+
+</body>
+</html>
