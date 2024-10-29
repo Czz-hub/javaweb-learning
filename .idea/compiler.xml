@@ -8,10 +8,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="class01-servlet" />
+        <module name="class05-ajax-axios" />
+        <module name="class06-filter-listener" />
+        <module name="brand-list" />
+        <module name="book-online" />
         <module name="class04-cookie-session" />
         <module name="class02-request" />
         <module name="class03-response" />
-        <module name="book-online" />
       </profile>
     </annotationProcessing>
   </component>
